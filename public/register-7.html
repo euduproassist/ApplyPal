@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>ApplyPal - Create Your Account</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #2f80ed;
+            --primary-blue-hover: #1a62d6;
+            --border-blue: #a8c7fa;
+            --text-black: #000000;
+            --text-heading: #0f172a;
+            --text-muted: #64748b;
+            --input-placeholder: #94a3b8;
+            --bg-white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: var(--bg-white);
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden; /* Guaranteed no horizontal scroll on any screen */
+            padding: 20px 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container that scales perfectly from 320px screens to 4K displays */
+        .register-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+        }
+
+        /* Brand Logo & Header */
+        .brand-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .brand-logo-icon {
+            width: 64px;
+            height: 64px;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brand-logo-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: var(--primary-blue);
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .brand-name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #000000;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .brand-name span {
+            color: var(--primary-blue);
+        }
+
+        .brand-tagline {
+            margin-top: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        /* Section Title */
+        .form-header {
+            text-align: center;
+            margin-bottom: 28px;
+            width: 100%;
+        }
+
+        .form-header h1 {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .form-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            font-weight: 400;
+        }
+
+        /* Form Controls */
+        .register-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .input-group label {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input-wrapper .lead-icon {
+            position: absolute;
+            left: 14px;
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .input-wrapper .trail-icon {
+            position: absolute;
+            right: 14px;
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.15s ease;
+        }
+
+        .input-wrapper .trail-icon:hover {
+            color: var(--text-heading);
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            height: 48px;
+            padding: 0 42px;
+            background: #ffffff;
+            border: 1.5px solid var(--border-blue);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #000000;
+            outline: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .input-wrapper input::placeholder {
+            color: var(--input-placeholder);
+        }
+
+        .input-wrapper input:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.15);
+        }
+
+        /* Primary Submit Button */
+        .btn-submit {
+            width: 100%;
+            height: 48px;
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: background-color 0.15s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-blue-hover);
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 22px 0;
+            width: 100%;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .divider span {
+            padding: 0 12px;
+        }
+
+        /* Google OAuth Button */
+        .btn-google {
+            width: 100%;
+            height: 48px;
+            background: #ffffff;
+            border: 1.5px solid var(--border-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #000000;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.15s ease;
+        }
+
+        .btn-google:hover {
+            background-color: #f8fafc;
+        }
+
+        .btn-google svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer Link */
+        .login-footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .login-footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Screen Safeguards */
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 16px 16px;
+            }
+
+            .brand-name {
+                font-size: 2.3rem;
+            }
+
+            .form-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .input-wrapper input, .btn-submit, .btn-google {
+                height: 46px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        
+        <!-- Brand Header Section -->
+        <div class="brand-header">
+            <div class="brand-logo-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+            </div>
+            <div class="brand-name">Apply<span>Pal</span></div>
+            <div class="brand-tagline">Your application buddy.</div>
+        </div>
+
+        <!-- Section Title -->
+        <div class="form-header">
+            <h1>Create your account</h1>
+            <p>Register to save your details and<br>apply faster everywhere.</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form class="register-form" action="#" method="POST" onsubmit="event.preventDefault();">
+            
+            <!-- Email Field -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                    <svg class="lead-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <svg class="lead-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                    <input type="password" id="password" placeholder="Create a password" required>
+                    <svg class="trail-icon" onclick="togglePasswordVisibility('password', this)" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="input-group">
+                <label for="confirm-password">Confirm password</label>
+                <div class="input-wrapper">
+                    <svg class="lead-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                    <svg class="trail-icon" onclick="togglePasswordVisibility('confirm-password', this)" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit">Register</button>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <!-- Google OAuth Button -->
+        <button type="button" class="btn-google">
+            <svg viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            Continue with Google
+        </button>
+
+        <!-- Login Redirect Link -->
+        <div class="login-footer">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+
+    </div>
+
+    <script>
+        function togglePasswordVisibility(fieldId, iconSvg) {
+            const inputField = document.getElementById(fieldId);
+            if (inputField.type === "password") {
+                inputField.type = "text";
+                iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858-5.908a8.959 8.959 0 013.122-.563c4.478 0 8.268 2.943 9.542 7a10.025 10.025 0 01-4.132 5.411m-1.782 1.782a9.98 9.98 0 01-4.041.812M3 3l18 18"/>';
+            } else {
+                inputField.type = "password";
+                iconSvg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>';
+            }
+        }
+    </script>
+</body>
+</html>
